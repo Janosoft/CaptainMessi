@@ -1,5 +1,5 @@
 shader_type canvas_item;
-uniform vec4 SKIN = vec4(0.996, 0.8, 0.773, 1);
+const vec4 SKIN = vec4(0.996, 0.8, 0.773, 1);
 const vec4 HAIR = vec4(0.6, 0.306, 0.0, 1.0);
 const vec4 SHIRT_1 = vec4(0.392, 0.69, 1.0, 1.0);
 const vec4 SHIRT_2 = vec4(0.373, 0.804, 0.894, 1.0);
