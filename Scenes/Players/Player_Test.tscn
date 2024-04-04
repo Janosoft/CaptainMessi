@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjk7q525q75c5"]
+
+[ext_resource type="Shader" path="res://Shaders/player.gdshader" id="1_oopsi"]
+[ext_resource type="Texture2D" uid="uid://dqmta7a58btrb" path="res://Assets/Players/Player_1.png" id="2_ycmqc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv3bn"]
+shader = ExtResource("1_oopsi")
+shader_parameter/Skin = Color(0.996078, 0.8, 0.772549, 1)
+shader_parameter/Hair = Color(0.509804, 0.384314, 0.301961, 1)
+shader_parameter/Shirt_1 = Color(0.945098, 0.658824, 0.686275, 1)
+shader_parameter/Shirt_2 = Color(0.917647, 0.556863, 0.666667, 1)
+shader_parameter/Pant = Color(0.886275, 0.564706, 0.588235, 1)
+shader_parameter/Socks_1 = Color(0.886275, 0.564706, 0.588235, 1)
+shader_parameter/Socks_2 = Color(0.917211, 0.680065, 0.683317, 1)
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_hv3bn")
+texture = ExtResource("2_ycmqc")
