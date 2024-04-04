@@ -16,7 +16,7 @@ uniform vec4 Socks_2 : source_color;
 
 
 void fragment() {
-	if (texture(TEXTURE, UV).a < 0.01) COLOR = texture(TEXTURE, UV);
+	if (texture(TEXTURE, UV).a < 0.01) COLOR = texture(TEXTURE, UV) ;
 	else if (distance(texture(TEXTURE,UV).rgb,SKIN.rgb)<0.1) COLOR = Skin;
 	else if (distance(texture(TEXTURE,UV).rgb,HAIR.rgb)<0.1) COLOR = Hair;
 	else if (distance(texture(TEXTURE,UV).rgb,SHIRT_1.rgb)<0.1) COLOR = Shirt_1;
