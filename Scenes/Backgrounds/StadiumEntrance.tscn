@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhf5541vacx61"]
+
+[ext_resource type="Texture2D" uid="uid://dri4nr2eown45" path="res://Assets/Backgrounds/Backgrounds.png" id="1_lud4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iflk"]
+atlas = ExtResource("1_lud4d")
+region = Rect2(0, 0, 768, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q538c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iflk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q538c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 6)
+limit_left = -384
+limit_top = -56
+limit_right = 384
+limit_bottom = 56

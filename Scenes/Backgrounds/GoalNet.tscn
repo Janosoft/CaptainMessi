@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgyoafiplu55l"]
+
+[ext_resource type="Texture2D" uid="uid://dri4nr2eown45" path="res://Assets/Backgrounds/Backgrounds.png" id="1_s3qqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdjhv"]
+atlas = ExtResource("1_s3qqr")
+region = Rect2(0, 224, 768, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3yuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdjhv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoalNet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_l3yuu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 6)
+limit_left = -384
+limit_top = -56
+limit_right = 384
+limit_bottom = 56
