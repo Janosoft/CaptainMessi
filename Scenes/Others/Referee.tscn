@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqqt38bigd4ds"]
+
+[ext_resource type="Texture2D" uid="uid://c5casuhpym1l" path="res://Assets/Others/Referee.png" id="1_1f7im"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1feq"]
+atlas = ExtResource("1_1f7im")
+region = Rect2(0, 0, 71, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eago"]
+atlas = ExtResource("1_1f7im")
+region = Rect2(71, 0, 71, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfreb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1feq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eago")
+}],
+"loop": true,
+"name": &"whistle",
+"speed": 5.0
+}]
+
+[node name="Referee" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nfreb")
+animation = &"whistle"
