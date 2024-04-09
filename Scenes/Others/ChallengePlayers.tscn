@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://de72d0acf15k8"]
+
+[ext_resource type="Texture2D" uid="uid://wor74l3lncop" path="res://Assets/Others/ChallengePlayers.png" id="1_g2tqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl2cc"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(0, 0, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cupom"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(256, 0, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcd6b"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(512, 0, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m56w8"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(768, 0, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41pye"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(1024, 0, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bgtn"]
+atlas = ExtResource("1_g2tqm")
+region = Rect2(1280, 0, 256, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxqdg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl2cc")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cupom")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcd6b")
+}],
+"loop": false,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m56w8")
+}],
+"loop": false,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41pye")
+}],
+"loop": false,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bgtn")
+}],
+"loop": false,
+"name": &"goalKeeper",
+"speed": 5.0
+}]
+
+[node name="ChallengePlayers" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mxqdg")
+animation = &"goalKeeper"
