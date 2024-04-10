@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://3vblbdsb3l2t"]
+
+[ext_resource type="Script" path="res://Scripts/Teams/Inter Miami CF 2023.gd" id="1_hpyay"]
+[ext_resource type="PackedScene" uid="uid://d1o3tgpav06it" path="res://Scenes/Players/Player_7.tscn" id="2_apdos"]
+
+[node name="InterMiamiCf2023" type="Node2D"]
+script = ExtResource("1_hpyay")
+
+[node name="10 - Messi" parent="." instance=ExtResource("2_apdos")]
+position = Vector2(62, 84)
+
+[node name="Player7" parent="." instance=ExtResource("2_apdos")]
+position = Vector2(300, 91)

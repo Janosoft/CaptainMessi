@@ -10,10 +10,9 @@ uniform vec4 Skin : source_color;
 uniform vec4 Hair : source_color;
 uniform vec4 Shirt_1 : source_color;
 uniform vec4 Shirt_2 : source_color;
-uniform vec4 Pant : source_color;
+uniform vec4 Pants : source_color;
 uniform vec4 Socks_1 : source_color;
 uniform vec4 Socks_2 : source_color;
-
 
 void fragment() {
 	if (texture(TEXTURE, UV).a < 0.01) COLOR = texture(TEXTURE, UV) ;
@@ -21,7 +20,7 @@ void fragment() {
 	else if (distance(texture(TEXTURE,UV).rgb,HAIR.rgb)<0.1) COLOR = Hair;
 	else if (distance(texture(TEXTURE,UV).rgb,SHIRT_1.rgb)<0.1) COLOR = Shirt_1;
 	else if (distance(texture(TEXTURE,UV).rgb,SHIRT_2.rgb)<0.1) COLOR = Shirt_2;
-	else if (distance(texture(TEXTURE,UV).rgb,PANT.rgb)<0.1) COLOR = Pant;
+	else if (distance(texture(TEXTURE,UV).rgb,PANT.rgb)<0.1) COLOR = Pants;
 	else if (distance(texture(TEXTURE,UV).rgb,SOCKS_1.rgb)<0.1) COLOR = Socks_1;
 	else if (distance(texture(TEXTURE,UV).rgb,SOCKS_2.rgb)<0.1) COLOR = Socks_2;
 	
