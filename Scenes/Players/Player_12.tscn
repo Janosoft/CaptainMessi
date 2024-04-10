@@ -1,17 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://fobcjr1u67xj"]
+[gd_scene load_steps=56 format=3 uid="uid://fobcjr1u67xj"]
 
-[ext_resource type="Shader" path="res://Shaders/player.gdshader" id="1_h7f75"]
+[ext_resource type="Script" path="res://Scripts/Players/Player_12.gd" id="1_pcfwm"]
 [ext_resource type="Texture2D" uid="uid://d2aftmsarlmi3" path="res://Assets/Players/Player_12.png" id="2_7lrus"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_87fvj"]
-shader = ExtResource("1_h7f75")
-shader_parameter/Skin = Color(0.996078, 0.8, 0.772549, 1)
-shader_parameter/Hair = Color(0.509804, 0.384314, 0.301961, 1)
-shader_parameter/Shirt_1 = Color(0.945098, 0.658824, 0.686275, 1)
-shader_parameter/Shirt_2 = Color(0.917647, 0.556863, 0.666667, 1)
-shader_parameter/Pant = Color(0.886275, 0.564706, 0.588235, 1)
-shader_parameter/Socks_1 = Color(0.886275, 0.564706, 0.588235, 1)
-shader_parameter/Socks_2 = Color(0.917211, 0.680065, 0.683317, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tmmy"]
 atlas = ExtResource("2_7lrus")
@@ -502,9 +492,10 @@ animations = [{
 size = Vector2(22, 41)
 
 [node name="Player12" type="CharacterBody2D"]
+script = ExtResource("1_pcfwm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_87fvj")
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_8nw3d")
 animation = &"interceptRight"
 
