@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://3vblbdsb3l2t"]
+[gd_scene load_steps=12 format=3 uid="uid://3vblbdsb3l2t"]
 
 [ext_resource type="Script" path="res://Scripts/Teams/Inter Miami CF 2023.gd" id="1_hpyay"]
 [ext_resource type="PackedScene" uid="uid://d1o3tgpav06it" path="res://Scenes/Players/Player_7.tscn" id="2_apdos"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cf7yuh7e55gf2" path="res://Scenes/Players/Player_11.tscn" id="8_agic1"]
 [ext_resource type="PackedScene" uid="uid://d0v34pcokjy7v" path="res://Scenes/Players/Player_8.tscn" id="8_gispy"]
 [ext_resource type="PackedScene" uid="uid://dvcxpriw8lhjx" path="res://Scenes/Players/Player_2.tscn" id="9_036f3"]
+[ext_resource type="PackedScene" uid="uid://cb3ck4na4vsrg" path="res://Scenes/Goalkeepers/Goalkeeper_1.tscn" id="11_bi0g8"]
 
 [node name="InterMiamiCf2023" type="Node2D"]
 script = ExtResource("1_hpyay")
@@ -81,3 +82,11 @@ position = Vector2(531, 276)
 playerName = "Fray"
 skinColor = Color(0.792157, 0.545098, 0.403922, 1)
 hairColor = Color(0.192157, 0.176471, 0.176471, 1)
+
+[node name="Goalkeepers" type="Node2D" parent="."]
+
+[node name="1 - Callender" parent="Goalkeepers" instance=ExtResource("11_bi0g8")]
+position = Vector2(361, 371)
+playerName = "Callender"
+skinColor = Color(0.690196, 0.443137, 0.32549, 1)
+hairColor = Color(0.137255, 0.137255, 0.129412, 1)
