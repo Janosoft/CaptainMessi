@@ -6,7 +6,7 @@ const PANTS: Color = Color(0.886275, 0.564706, 0.588235, 1)
 const SOCKS_1: Color = Color(0.886275, 0.564706, 0.588235, 1)
 const SOCKS_2: Color = Color(0.917211, 0.680065, 0.683317, 1)
 const KEEPER_1: Color = Color(1.0, 0.956, 0.294, 1.0)
-const KEEPER_2: Color = Color(0.976, 0.874, 0.0, 1.0)
+const KEEPER_2: Color = Color(0.894, 0.824, 0.286, 1.0)
 
 @onready var players = $Players
 @onready var goalkeepers = $Goalkeepers
