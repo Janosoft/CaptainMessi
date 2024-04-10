@@ -19,40 +19,37 @@
 [node name="GoalNear" parent="." instance=ExtResource("1_dk0ai")]
 
 [node name="Player1" parent="." instance=ExtResource("2_gy3kv")]
-position = Vector2(-236, 3)
+position = Vector2(-334, 5)
 
 [node name="Player2" parent="." instance=ExtResource("3_k8yi4")]
-position = Vector2(-160, 1)
+position = Vector2(-276, 3)
 
 [node name="Player3" parent="." instance=ExtResource("4_p2wsv")]
-position = Vector2(-93, -1)
+position = Vector2(-217, 3)
 
 [node name="Player4" parent="." instance=ExtResource("5_a8bme")]
-position = Vector2(-39, 1)
+position = Vector2(-159, 2)
 
 [node name="Player5" parent="." instance=ExtResource("6_f18fx")]
-position = Vector2(39, 0)
+position = Vector2(-99, 3)
 
 [node name="Player6" parent="." instance=ExtResource("7_cux28")]
-position = Vector2(118, -2)
-
-[node name="10 - Messi" parent="." instance=ExtResource("8_mnk7f")]
-position = Vector2(-341, 7)
+position = Vector2(-41, 5)
 
 [node name="Player8" parent="." instance=ExtResource("9_iun4a")]
-position = Vector2(201, -3)
+position = Vector2(76, 1)
 
 [node name="Player9" parent="." instance=ExtResource("10_ms5mr")]
-position = Vector2(233, -7)
+position = Vector2(144, 3)
 
 [node name="Player10" parent="." instance=ExtResource("11_105kt")]
-position = Vector2(274, -6)
+position = Vector2(211, 2)
 
 [node name="Player11" parent="." instance=ExtResource("12_7jjwo")]
-position = Vector2(313, -7)
+position = Vector2(274, 2)
 
 [node name="Player12" parent="." instance=ExtResource("13_aksia")]
-position = Vector2(352, -8)
+position = Vector2(339, 4)
 
 [node name="Player7" parent="." instance=ExtResource("8_mnk7f")]
-position = Vector2(-253, 5)
+position = Vector2(19, 0)
