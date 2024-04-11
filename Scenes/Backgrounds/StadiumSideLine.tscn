@@ -21,7 +21,6 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_2kt6g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 6)
 limit_left = -384
 limit_top = -56
 limit_right = 384
