@@ -497,7 +497,7 @@ script = ExtResource("1_fu12g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_8nw3d")
-animation = &"interceptRight"
+animation = &"runningWithoutBall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
