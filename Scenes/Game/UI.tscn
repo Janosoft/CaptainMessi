@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c54d854bd4ivl"]
+
+[ext_resource type="Texture2D" uid="uid://bkw878cq0cq0w" path="res://Assets/Game/example.png" id="1_pqgq0"]
+[ext_resource type="PackedScene" uid="uid://cgx8nrkuup1jh" path="res://Scenes/Others/Relator.tscn" id="2_eg3ew"]
+
+[node name="Ui" type="Node2D"]
+
+[node name="Example" type="Sprite2D" parent="."]
+position = Vector2(128, 120)
+texture = ExtResource("1_pqgq0")
+
+[node name="Relator" parent="." instance=ExtResource("2_eg3ew")]
+position = Vector2(85, 186)
+animation = &"default"
