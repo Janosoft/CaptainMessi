@@ -11,7 +11,6 @@ const KEEPER_2: Color = Color(0.894, 0.824, 0.286, 1.0)
 @onready var players = $Players
 @onready var goalkeepers = $Goalkeepers
 
-
 func _ready():
 #region Set Players Colors
 	for player in players.get_children():
@@ -34,3 +33,17 @@ func _ready():
 		goalkeeper.material.set_shader_parameter('Skin', goalkeeper.skinColor)
 		goalkeeper.material.set_shader_parameter('Hair', goalkeeper.hairColor)
 #endregion
+
+func showPlayer(playerName:String, animation:String):
+	for player:CharacterBody2D in players.get_children():
+		if (player.name == playerName):
+			player.setAnimation(animation)
+			player.visible = true
+		else:
+			player.visible = false
+	for goalkeeper:CharacterBody2D in goalkeepers.get_children():
+		if (goalkeeper.name == playerName):
+			goalkeeper.setAnimation(animation)
+			goalkeeper.visible = true;
+		else:
+			goalkeeper.visible = false
