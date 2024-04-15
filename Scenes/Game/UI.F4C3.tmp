@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://c54d854bd4ivl"]
+[gd_scene load_steps=10 format=3 uid="uid://c54d854bd4ivl"]
 
 [ext_resource type="Texture2D" uid="uid://bp44xev57xbrp" path="res://Assets/Game/example2.png" id="1_0vkb1"]
+[ext_resource type="Script" path="res://Scenes/Game/UI.gd" id="1_qiokk"]
 [ext_resource type="PackedScene" uid="uid://cgx8nrkuup1jh" path="res://Scenes/Others/Relator.tscn" id="2_eg3ew"]
-[ext_resource type="PackedScene" uid="uid://dl50ndixjdais" path="res://Scenes/Game/Time.tscn" id="3_sg1ru"]
-[ext_resource type="PackedScene" uid="uid://rttcgtekjuwy" path="res://Scenes/Game/Teams.tscn" id="4_wm33u"]
-[ext_resource type="PackedScene" uid="uid://06drthhqghe" path="res://Scenes/Game/Balloon.tscn" id="5_i7n5k"]
-[ext_resource type="PackedScene" uid="uid://dphe6qr4mthlj" path="res://Scenes/Game/PK.tscn" id="6_nosnx"]
-[ext_resource type="PackedScene" uid="uid://crwklrattd2bc" path="res://Scenes/Game/Stats.tscn" id="7_y0ba5"]
-[ext_resource type="PackedScene" uid="uid://bb7fcbc5q216r" path="res://Scenes/Game/Actions.tscn" id="8_25q8v"]
+[ext_resource type="PackedScene" uid="uid://dl50ndixjdais" path="res://Scenes/Game/UI/Time.tscn" id="3_sg1ru"]
+[ext_resource type="PackedScene" uid="uid://rttcgtekjuwy" path="res://Scenes/Game/UI/Teams.tscn" id="4_wm33u"]
+[ext_resource type="PackedScene" uid="uid://06drthhqghe" path="res://Scenes/Game/UI/Balloon.tscn" id="5_i7n5k"]
+[ext_resource type="PackedScene" uid="uid://dphe6qr4mthlj" path="res://Scenes/Game/UI/PK.tscn" id="6_nosnx"]
+[ext_resource type="PackedScene" uid="uid://crwklrattd2bc" path="res://Scenes/Game/UI/Stats.tscn" id="7_y0ba5"]
+[ext_resource type="PackedScene" uid="uid://bb7fcbc5q216r" path="res://Scenes/Game/UI/Actions.tscn" id="8_25q8v"]
 
 [node name="Ui" type="Node2D"]
+script = ExtResource("1_qiokk")
+elements = 18
 
 [node name="Example" type="Sprite2D" parent="."]
 position = Vector2(128, 120)

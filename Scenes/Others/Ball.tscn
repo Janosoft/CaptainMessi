@@ -98,9 +98,9 @@ region = Rect2(384, 48, 48, 48)
 atlas = ExtResource("1_lt05w")
 region = Rect2(432, 48, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8jvx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wbgy"]
 atlas = ExtResource("1_lt05w")
-region = Rect2(0, 144, 48, 48)
+region = Rect2(0, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4vjl"]
 atlas = ExtResource("1_lt05w")
@@ -257,9 +257,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h8jvx")
+"texture": SubResource("AtlasTexture_4wbgy")
 }],
-"loop": true,
+"loop": false,
 "name": &"penalty",
 "speed": 5.0
 }, {
@@ -329,6 +329,4 @@ animations = [{
 
 [node name="Ball" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_alpja")
-animation = &"normal"
-frame = 9
-frame_progress = 1.0
+animation = &"penalty"
