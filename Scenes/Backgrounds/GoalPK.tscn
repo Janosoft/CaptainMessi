@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi5fayeoek01r"]
+
+[ext_resource type="Texture2D" uid="uid://ncgfw8p10k04" path="res://Assets/Backgrounds/Backgrounds2.png" id="1_bit5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lwap"]
+atlas = ExtResource("1_bit5a")
+region = Rect2(0, 224, 768, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp1ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lwap")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoalPk" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rp1ht")
