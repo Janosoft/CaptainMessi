@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dphe6qr4mthlj"]
+
+[ext_resource type="Texture2D" uid="uid://bn2uti1brbs7j" path="res://Assets/Game/PK.png" id="1_vgvcl"]
+
+[node name="Pk" type="Sprite2D"]
+texture = ExtResource("1_vgvcl")

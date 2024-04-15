@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://06drthhqghe"]
+
+[ext_resource type="Texture2D" uid="uid://be1xwf5ofr0mi" path="res://Assets/Game/Balloon.png" id="1_48vye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcv2j"]
+atlas = ExtResource("1_48vye")
+region = Rect2(304, 0, 152, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r5y0"]
+atlas = ExtResource("1_48vye")
+region = Rect2(152, 0, 152, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq77e"]
+atlas = ExtResource("1_48vye")
+region = Rect2(0, 0, 152, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8sey4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcv2j")
+}],
+"loop": false,
+"name": &"big",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r5y0")
+}],
+"loop": false,
+"name": &"medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq77e")
+}],
+"loop": false,
+"name": &"small",
+"speed": 5.0
+}]
+
+[node name="Balloon" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8sey4")
+animation = &"medium"

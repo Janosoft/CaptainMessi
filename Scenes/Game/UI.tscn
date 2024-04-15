@@ -1,14 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://c54d854bd4ivl"]
+[gd_scene load_steps=9 format=3 uid="uid://c54d854bd4ivl"]
 
-[ext_resource type="Texture2D" uid="uid://bkw878cq0cq0w" path="res://Assets/Game/example.png" id="1_pqgq0"]
+[ext_resource type="Texture2D" uid="uid://bp44xev57xbrp" path="res://Assets/Game/example2.png" id="1_0vkb1"]
 [ext_resource type="PackedScene" uid="uid://cgx8nrkuup1jh" path="res://Scenes/Others/Relator.tscn" id="2_eg3ew"]
+[ext_resource type="PackedScene" uid="uid://dl50ndixjdais" path="res://Scenes/Game/Time.tscn" id="3_sg1ru"]
+[ext_resource type="PackedScene" uid="uid://rttcgtekjuwy" path="res://Scenes/Game/Teams.tscn" id="4_wm33u"]
+[ext_resource type="PackedScene" uid="uid://06drthhqghe" path="res://Scenes/Game/Balloon.tscn" id="5_i7n5k"]
+[ext_resource type="PackedScene" uid="uid://dphe6qr4mthlj" path="res://Scenes/Game/PK.tscn" id="6_nosnx"]
+[ext_resource type="PackedScene" uid="uid://crwklrattd2bc" path="res://Scenes/Game/Stats.tscn" id="7_y0ba5"]
+[ext_resource type="PackedScene" uid="uid://bb7fcbc5q216r" path="res://Scenes/Game/Actions.tscn" id="8_25q8v"]
 
 [node name="Ui" type="Node2D"]
 
 [node name="Example" type="Sprite2D" parent="."]
 position = Vector2(128, 120)
-texture = ExtResource("1_pqgq0")
+texture = ExtResource("1_0vkb1")
 
 [node name="Relator" parent="." instance=ExtResource("2_eg3ew")]
+visible = false
 position = Vector2(85, 186)
 animation = &"default"
+
+[node name="Time" parent="." instance=ExtResource("3_sg1ru")]
+visible = false
+position = Vector2(36, 154)
+
+[node name="Teams" parent="." instance=ExtResource("4_wm33u")]
+visible = false
+position = Vector2(36, 190)
+
+[node name="Balloon" parent="." instance=ExtResource("5_i7n5k")]
+visible = false
+position = Vector2(174, 174)
+
+[node name="Pk" parent="." instance=ExtResource("6_nosnx")]
+visible = false
+position = Vector2(36, 162)
+
+[node name="Stats" parent="." instance=ExtResource("7_y0ba5")]
+visible = false
+position = Vector2(192, 178)
+
+[node name="Actions" parent="." instance=ExtResource("8_25q8v")]
+visible = false
+position = Vector2(104, 162)

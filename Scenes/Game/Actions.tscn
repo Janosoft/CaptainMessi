@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7fcbc5q216r"]
+
+[ext_resource type="Texture2D" uid="uid://0vxa8r5ahfe4" path="res://Assets/Game/Actions.png" id="1_moyum"]
+
+[node name="Actions" type="Sprite2D"]
+texture = ExtResource("1_moyum")

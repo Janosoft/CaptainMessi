@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rttcgtekjuwy"]
+
+[ext_resource type="Texture2D" uid="uid://cug6n8q0anbaf" path="res://Assets/Game/Teams.png" id="1_0bwkp"]
+
+[node name="Teams" type="Sprite2D"]
+texture = ExtResource("1_0bwkp")
