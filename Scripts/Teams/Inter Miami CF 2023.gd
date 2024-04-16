@@ -38,7 +38,8 @@ func showPlayer(playerName:String, animation:String):
 	for child in self.get_children(): child.visible = false
 	var player : Node2D = self.find_child(playerName,true,true)
 	if player != null:
-		player.visible = true
 		player.setAnimation(animation)
+		player.get_parent().visible = true
+		player.visible = true
 	else:
 		print_debug(playerName + " NO FUE ENCONTRADO EN " + self.name)
