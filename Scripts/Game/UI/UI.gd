@@ -17,3 +17,9 @@ func _ready():
 	if elements & 16: balloon.visible= true
 	if elements & 32: stats.visible= true
 	if elements & 64: actions.visible= true
+
+func setActionLabel(label : String):
+	actions.setLabel(label)
+	
+func setActionActivity(activity : String):
+	actions.setActivity(activity)
