@@ -9,16 +9,19 @@
 script = ExtResource("1_kmgb1")
 team1File = "res://Scenes/Teams/Cruz Azul 2023.tscn"
 team2File = "res://Scenes/Teams/Inter Miami CF 2023.tscn"
+playerTeam = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 256.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
 
 [node name="Ui" parent="." instance=ExtResource("1_mev6y")]
 elements = 104
 
-[node name="GoalPk" parent="." instance=ExtResource("2_wotpl")]
+[node name="Background" parent="." instance=ExtResource("2_wotpl")]
 position = Vector2(128, 68)
 
-[node name="Team1" type="Node2D" parent="."]
-
-[node name="Team2" type="Node2D" parent="."]
-
 [node name="Ball" parent="." instance=ExtResource("3_gmhrd")]
+z_index = 1
 position = Vector2(129, 106)
