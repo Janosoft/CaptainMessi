@@ -35,18 +35,10 @@ func _ready():
 #endregion
 	
 func showPlayer(playerName:String, animation:String):
-	for player:CharacterBody2D in players.get_children():
-		if (player.name == playerName):
-			player.setAnimation(animation)
-			player.visible = true
-		else:
-			player.visible = false
-	for goalkeeper:CharacterBody2D in goalkeepers.get_children():
-		if (goalkeeper.name == playerName):
-			goalkeeper.setAnimation(animation)
-			goalkeeper.visible = true;
-		else:
-			goalkeeper.visible = false
-
-func getGoalkeeperName():
-	return goalkeepers.get_child(0).name
+	for child in self.get_children(): child.visible = false
+	var player : Node2D = self.find_child(playerName,true,true)
+	if player != null:
+		player.visible = true
+		player.setAnimation(animation)
+	else:
+		print_debug(playerName + " NO FUE ENCONTRADO EN " + self.name)
