@@ -1,6 +1,6 @@
 [gd_scene load_steps=57 format=3 uid="uid://bjhqdjkeyy7he"]
 
-[ext_resource type="Script" path="res://Scripts/Players/Player_5.gd" id="1_gsmpu"]
+[ext_resource type="Script" path="res://Scripts/PlayerClass.gd" id="1_vnx7u"]
 [ext_resource type="Texture2D" uid="uid://dqmta7a58btrb" path="res://Assets/Players/Player_1.png" id="2_6ji2m"]
 [ext_resource type="Texture2D" uid="uid://c5u7u0cuwt3m5" path="res://Assets/Players/Player_5.png" id="2_b76dj"]
 
@@ -493,7 +493,7 @@ animations = [{
 size = Vector2(22, 41)
 
 [node name="Player5" type="CharacterBody2D"]
-script = ExtResource("1_gsmpu")
+script = ExtResource("1_vnx7u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true

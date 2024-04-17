@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bcu1wtuwxerjh"]
 
 [ext_resource type="Texture2D" uid="uid://c04nsqr0pfqhm" path="res://Assets/Goalkeepers/Goalkeeper_3.png" id="1_1tme8"]
-[ext_resource type="Script" path="res://Scripts/Goalkeepers/Goalkeeper_3.gd" id="1_6o10k"]
+[ext_resource type="Script" path="res://Scripts/GoalkeeperClass.gd" id="1_tmsrt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mitq8"]
 atlas = ExtResource("1_1tme8")
@@ -190,7 +190,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r563"]
 
 [node name="Goalkeeper3" type="CharacterBody2D"]
-script = ExtResource("1_6o10k")
+script = ExtResource("1_tmsrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
