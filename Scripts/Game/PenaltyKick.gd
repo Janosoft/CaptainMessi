@@ -13,8 +13,10 @@ var _team1 : Node2D
 var _team2 : Node2D
 var _team1Score = 0
 var _team2Score = 0
+var _team1RemainingTurns = 5
+var _team2RemainingTurns = 5
 var _teamTurn : int = 1
-var _round = 1
+var _winner: int = 0
 
 func _ready():
 #region SETUP TEAMS
@@ -64,7 +66,6 @@ func _input(event):
 			shoot()
 
 func shoot():
-	
 	if _teamTurn == playerTeam: _goalkeeperDirection = Direction.values()[randi() % 3]
 	else: _playerDirection = Direction.values()[randi() % 3]
 	
@@ -75,14 +76,29 @@ func shoot():
 	else:
 		print_debug("SAVED: " + Direction.keys()[_playerDirection] + " VS " + Direction.keys()[_goalkeeperDirection])
 		pass
-		
-	changeTurn()
+	
 	print_debug(str(_team1Score) + " - " + str(_team2Score))
+	
+	_winner = isAWinner()
+	if _winner:
+		print_debug("Winner: " + str(_winner))
+	else:
+		changeTurn()
+		
 	#emit_signal("gameOver", "playerWins")
 	
 func changeTurn():
-	_teamTurn = 2 if (_teamTurn == 1) else 1
-	_round += 1
+	if _teamTurn == 1:
+		_team1RemainingTurns -=1
+		_teamTurn = 2
+	else:
+		_team2RemainingTurns -=1
+		_teamTurn = 1
+
+func isAWinner()-> int:
+	if (_team1Score - (_team2Score + _team2RemainingTurns)) >0 : return 1
+	elif (_team2Score - (_team1Score + _team1RemainingTurns)) >0 : return 2
+	else: return 0
 
 func goal(team : int):
 	if team == 1: _team1Score +=1
