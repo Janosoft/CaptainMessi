@@ -40,7 +40,7 @@ func _ready():
 #endregion
 	
 func showPlayer(playerName:String, animation:String):
-	for child in self.get_children(): child.visible = false
+	hidePlayers()
 	var player : Node2D = self.find_child(playerName,true,true)
 	if player != null:
 		player.setAnimation(animation)
@@ -48,3 +48,6 @@ func showPlayer(playerName:String, animation:String):
 		player.visible = true
 	else:
 		print_debug(playerName + " NO FUE ENCONTRADO EN " + self.name)
+
+func hidePlayers():
+	for child in self.get_children(): child.visible = false
