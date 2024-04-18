@@ -1,4 +1,6 @@
+@icon("../module.svg")
 extends Sprite2D
+class_name UI_Actions
 
 @onready var label = $Label
 @onready var activity = $Activity

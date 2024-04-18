@@ -5,9 +5,9 @@ extends Node2D
 @onready var time = $Time
 @onready var teams = $Teams
 @onready var balloon = $Balloon
-@onready var pk = $Pk
+@onready var pk : UI_Pk = $Pk
 @onready var stats = $Stats
-@onready var actions = $Actions
+@onready var actions : UI_Actions = $Actions
 
 func _ready():
 	if elements & 1: relator.visible= true
@@ -17,9 +17,3 @@ func _ready():
 	if elements & 16: balloon.visible= true
 	if elements & 32: stats.visible= true
 	if elements & 64: actions.visible= true
-
-func setActionLabel(label : String):
-	actions.setLabel(label)
-	
-func setActionActivity(activity : String):
-	actions.setActivity(activity)
