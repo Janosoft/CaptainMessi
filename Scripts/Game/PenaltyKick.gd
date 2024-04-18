@@ -29,15 +29,8 @@ func _ready():
 	self.add_child(_team2)
 #endregion
 #region SETUP TURN
-	_teamTurn= randi() % 2 + 1 #RANDOM TURN
-	if _teamTurn == 1:
-		_team1.showPlayer(_team1.goalkeepers.get_child(0).name, "defaultMini")
-	else:
-		_team2.showPlayer(_team2.goalkeepers.get_child(0).name, "defaultMini")
-	if _teamTurn == playerTeam:
-		print_debug("PLAYER HAS TO SHOOT")
-	else:
-		print_debug("PLAYER HAS TO SAVE")
+	_teamTurn = randi() % 2 + 1 #RANDOM TURN
+	setTurn()
 #endregion
 #region SETUP UI
 	ui.setActionLabel("Direction")
@@ -94,6 +87,14 @@ func changeTurn():
 	else:
 		_team2RemainingTurns -=1
 		_teamTurn = 1
+
+func setTurn():
+	if _teamTurn == playerTeam:
+		print_debug("PLAYER HAS TO SHOOT")
+		_team1.showPlayer(_team1.goalkeepers.get_child(0).name, "defaultMini")
+	else:
+		print_debug("PLAYER HAS TO SAVE")
+		_team2.showPlayer(_team2.goalkeepers.get_child(0).name, "defaultMini")
 
 func isAWinner()-> int:
 	if (_team1Score - (_team2Score + _team2RemainingTurns)) >0 : return 1
