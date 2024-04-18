@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://dphe6qr4mthlj"]
+[gd_scene load_steps=3 format=3 uid="uid://dphe6qr4mthlj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2uti1brbs7j" path="res://Assets/Game/PK.png" id="1_vgvcl"]
+[ext_resource type="Script" path="res://Scripts/Game/UI/PK.gd" id="2_45h7x"]
 
 [node name="Pk" type="Sprite2D"]
 texture = ExtResource("1_vgvcl")
+script = ExtResource("2_45h7x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 12.0
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 12
+text = "P.K."
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 21.0
+offset_bottom = 21.0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Team1Name" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Team1Score" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Team2Name" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Team2Score" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12

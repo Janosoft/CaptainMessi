@@ -9,8 +9,8 @@ signal gameOver
 enum Direction {LEFT, CENTER, RIGHT}
 var _playerDirection = Direction.CENTER
 var _goalkeeperDirection = Direction.CENTER
-var _team1 : Node2D
-var _team2 : Node2D
+var _team1 : Team
+var _team2 : Team
 var _team1Score = 0
 var _team2Score = 0
 var _team1RemainingTurns = 5
@@ -29,33 +29,35 @@ func _ready():
 	self.add_child(_team2)
 #endregion
 #region SETUP TURN
-	_teamTurn = randi() % 2 + 1 #RANDOM TURN
 	setTurn()
 #endregion
 #region SETUP UI
-	ui.setActionLabel("Direction")
-	ui.setActionActivity("")
+	ui.actions.setLabel("Direction")
+	ui.actions.setActivity("")
+	ui.pk.setTeam1Name(_team1.TeamAbr)
+	ui.pk.setTeam2Name(_team2.TeamAbr)
+	ui.pk.setTeam1Score(_team1Score)
+	ui.pk.setTeam2Score(_team2Score)
 #endregion
-
 
 func _input(event):
 	if event is InputEventKey:
 		if event.is_action_pressed("Left"):
 			if (_teamTurn == playerTeam):_playerDirection = Direction.LEFT
 			else: _goalkeeperDirection = Direction.LEFT
-			ui.setActionActivity("Left")
+			ui.actions.setActivity("Left")
 		elif event.is_action_pressed("Right"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.RIGHT
 			else: _goalkeeperDirection = Direction.RIGHT
-			ui.setActionActivity("Right")
+			ui.actions.setActivity("Right")
 		elif event.is_action_pressed("Up"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.CENTER
 			else: _goalkeeperDirection = Direction.CENTER
-			ui.setActionActivity("Middle")
+			ui.actions.setActivity("Middle")
 		elif event.is_action_pressed("Cancel"):
-			ui.setActionActivity("")
+			ui.actions.setActivity("")
 		elif event.is_action_pressed("Action"):
-			ui.setActionActivity("")
+			ui.actions.setActivity("")
 			shoot()
 
 func shoot():
@@ -64,19 +66,16 @@ func shoot():
 	
 	if _playerDirection != _goalkeeperDirection:
 		goal(_teamTurn)
-		print_debug("GOAL: " + Direction.keys()[_playerDirection] + " VS " + Direction.keys()[_goalkeeperDirection])
-		pass
+		print_debug("Team "+ str(_teamTurn) +" GOAL")
 	else:
-		print_debug("SAVED: " + Direction.keys()[_playerDirection] + " VS " + Direction.keys()[_goalkeeperDirection])
-		pass
-	
-	print_debug(str(_team1Score) + " - " + str(_team2Score))
+		print_debug("Team "+ str(_teamTurn) +" NO GOAL")
 	
 	_winner = isAWinner()
 	if _winner:
 		print_debug("Winner: " + str(_winner))
 	else:
 		changeTurn()
+		setTurn()
 		
 	#emit_signal("gameOver", "playerWins")
 	
@@ -87,13 +86,21 @@ func changeTurn():
 	else:
 		_team2RemainingTurns -=1
 		_teamTurn = 1
+	
+	#print_debug("TeamTurn: " + str(_teamTurn) + " - Remaining Team1: " +str(_team1RemainingTurns) + " - Rmaining Team2: " + str(_team2RemainingTurns))
+	if _team1RemainingTurns == 0 and _team2RemainingTurns == 0 and (_team1Score == _team2Score):
+		print_debug("More Turn")
+		_team1RemainingTurns +=1
+		_team2RemainingTurns +=1
 
 func setTurn():
 	if _teamTurn == playerTeam:
 		print_debug("PLAYER HAS TO SHOOT")
+		_team2.hidePlayers()
 		_team1.showPlayer(_team1.goalkeepers.get_child(0).name, "defaultMini")
 	else:
 		print_debug("PLAYER HAS TO SAVE")
+		_team1.hidePlayers()
 		_team2.showPlayer(_team2.goalkeepers.get_child(0).name, "defaultMini")
 
 func isAWinner()-> int:
@@ -102,5 +109,9 @@ func isAWinner()-> int:
 	else: return 0
 
 func goal(team : int):
-	if team == 1: _team1Score +=1
-	else: _team2Score +=1
+	if team == 1:
+		_team1Score +=1
+		ui.pk.setTeam1Score(_team1Score)
+	else:
+		_team2Score +=1
+		ui.pk.setTeam2Score(_team2Score)
