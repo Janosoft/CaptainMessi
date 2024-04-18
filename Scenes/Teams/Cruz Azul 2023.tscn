@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://1414fw5o3w0v"]
 
 [ext_resource type="PackedScene" uid="uid://b4fkk1d6rpe11" path="res://Scenes/Goalkeepers/Goalkeeper_6.tscn" id="1_bfvof"]
-[ext_resource type="Script" path="res://Scripts/Teams/Cruz Azul 2023.gd" id="1_x0j34"]
 [ext_resource type="PackedScene" uid="uid://d1o3tgpav06it" path="res://Scenes/Players/Player_7.tscn" id="2_cp8bg"]
+[ext_resource type="Script" path="res://Scripts/TeamClass.gd" id="2_rkalx"]
 [ext_resource type="PackedScene" uid="uid://cf7yuh7e55gf2" path="res://Scenes/Players/Player_11.tscn" id="3_mhl8d"]
 [ext_resource type="PackedScene" uid="uid://fobcjr1u67xj" path="res://Scenes/Players/Player_12.tscn" id="4_jmfjq"]
 [ext_resource type="PackedScene" uid="uid://d1rweu78idfr" path="res://Scenes/Players/Player_1.tscn" id="4_kei4b"]
@@ -10,7 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://b7xp6isxq48ih" path="res://Scenes/Players/Player_3.tscn" id="7_ked5p"]
 
 [node name="CruzAzul2023" type="Node2D"]
-script = ExtResource("1_x0j34")
+script = ExtResource("2_rkalx")
+TeamName = "Cruz Azul"
+TeamAbr = "CAZ"
+SHIRT_1 = Color(0.00784314, 0.309804, 0.917647, 1)
+SHIRT_2 = Color(0.619608, 0.054902, 0.0862745, 1)
+PANTS = Color(0, 0.180392, 0.807843, 1)
+SOCKS_1 = Color(0.0352941, 0.286275, 1, 1)
+SOCKS_2 = Color(0.0196078, 0.168627, 0.811765, 1)
+KEEPER_1 = Color(0.517647, 0.141176, 0.662745, 1)
+KEEPER_2 = Color(0.415686, 0.176471, 0.556863, 1)
 
 [node name="Players" type="Node2D" parent="."]
 

@@ -1,6 +1,5 @@
 [gd_scene load_steps=12 format=3 uid="uid://3vblbdsb3l2t"]
 
-[ext_resource type="Script" path="res://Scripts/Teams/Inter Miami CF 2023.gd" id="1_hpyay"]
 [ext_resource type="PackedScene" uid="uid://d1o3tgpav06it" path="res://Scenes/Players/Player_7.tscn" id="2_apdos"]
 [ext_resource type="PackedScene" uid="uid://fobcjr1u67xj" path="res://Scenes/Players/Player_12.tscn" id="3_4kkbh"]
 [ext_resource type="PackedScene" uid="uid://crp7ynbldbxhv" path="res://Scenes/Players/Player_4.tscn" id="4_cp1on"]
@@ -11,9 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://d0v34pcokjy7v" path="res://Scenes/Players/Player_8.tscn" id="8_gispy"]
 [ext_resource type="PackedScene" uid="uid://dvcxpriw8lhjx" path="res://Scenes/Players/Player_2.tscn" id="9_036f3"]
 [ext_resource type="PackedScene" uid="uid://cb3ck4na4vsrg" path="res://Scenes/Goalkeepers/Goalkeeper_1.tscn" id="11_bi0g8"]
+[ext_resource type="Script" path="res://Scripts/TeamClass.gd" id="12_nkvx0"]
 
-[node name="InterMiamiCf2023" type="Node2D"]
-script = ExtResource("1_hpyay")
+[node name="InterMiamiCF2023" type="Node2D"]
+script = ExtResource("12_nkvx0")
+TeamName = "Inter Miami"
+TeamAbr = "MIA"
+SHIRT_1 = Color(0.945098, 0.658824, 0.686275, 1)
+SHIRT_2 = Color(0.917647, 0.556863, 0.666667, 1)
+PANTS = Color(0.886275, 0.564706, 0.588235, 1)
+SOCKS_1 = Color(0.886275, 0.564706, 0.588235, 1)
+SOCKS_2 = Color(0.913725, 0.678431, 0.682353, 1)
+KEEPER_1 = Color(1, 0.956863, 0.294118, 1)
+KEEPER_2 = Color(0.890196, 0.823529, 0.286275, 1)
 
 [node name="Players" type="Node2D" parent="."]
 
