@@ -4,7 +4,9 @@ signal gameOver
 @export_file("*.tscn") var team1File
 @export_file("*.tscn") var team2File
 @export_enum("Team 1:1", "Team 2:2") var playerTeam: int
-@onready var ui = $Ui
+@onready var ui: UI = $Ui
+@onready var background = $Background
+@onready var animation_player = $AnimationPlayer
 
 enum Direction {LEFT, CENTER, RIGHT}
 var _playerDirection = Direction.CENTER
@@ -32,12 +34,11 @@ func _ready():
 	setTurn()
 #endregion
 #region SETUP UI
-	ui.actions.setLabel("Direction")
-	ui.actions.setActivity("")
-	ui.pk.setTeam1Name(_team1.TeamAbr)
-	ui.pk.setTeam2Name(_team2.TeamAbr)
-	ui.pk.setTeam1Score(_team1Score)
-	ui.pk.setTeam2Score(_team2Score)
+	ui.setTeam1Name(_team1.TeamAbr)
+	ui.setTeam2Name(_team2.TeamAbr)
+	ui.setTeam1Score(_team1Score)
+	ui.setTeam2Score(_team2Score)
+	choose()
 #endregion
 
 func _input(event):
@@ -45,22 +46,29 @@ func _input(event):
 		if event.is_action_pressed("Left"):
 			if (_teamTurn == playerTeam):_playerDirection = Direction.LEFT
 			else: _goalkeeperDirection = Direction.LEFT
-			ui.actions.setActivity("Left")
+			ui.setActionActivity("Left")
 		elif event.is_action_pressed("Right"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.RIGHT
 			else: _goalkeeperDirection = Direction.RIGHT
-			ui.actions.setActivity("Right")
+			ui.setActionActivity("Right")
 		elif event.is_action_pressed("Up"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.CENTER
 			else: _goalkeeperDirection = Direction.CENTER
-			ui.actions.setActivity("Middle")
+			ui.setActionActivity("Middle")
 		elif event.is_action_pressed("Cancel"):
-			ui.actions.setActivity("")
+			ui.setActionActivity("")
 		elif event.is_action_pressed("Action"):
-			ui.actions.setActivity("")
+			ui.setActionActivity("")
 			shoot()
 
+func choose():
+	ui.penaltyKickChoose()
+	ui.setActionLabel("Direction")
+	ui.setActionActivity("")
+
 func shoot():
+	animation_player.play("shoot")
+	
 	if _teamTurn == playerTeam: _goalkeeperDirection = Direction.values()[randi() % 3]
 	else: _playerDirection = Direction.values()[randi() % 3]
 	
@@ -111,7 +119,7 @@ func isAWinner()-> int:
 func goal(team : int):
 	if team == 1:
 		_team1Score +=1
-		ui.pk.setTeam1Score(_team1Score)
+		ui.setTeam1Score(_team1Score)
 	else:
 		_team2Score +=1
-		ui.pk.setTeam2Score(_team2Score)
+		ui.setTeam2Score(_team2Score)
