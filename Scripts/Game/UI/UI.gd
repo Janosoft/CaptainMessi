@@ -1,19 +1,86 @@
+@icon("../module.svg")
 extends Node2D
+class_name UI
 
-@export_flags("Relator:1", "Time:2", "Teams:4", "Pk:8", "Balloon:16", "Stats:32", "Actions:64") var elements = 0
-@onready var relator = $Relator
-@onready var time = $Time
-@onready var teams = $Teams
-@onready var balloon = $Balloon
-@onready var pk : UI_Pk = $Pk
-@onready var stats = $Stats
-@onready var actions : UI_Actions = $Actions
+@onready var _relator = $Relator
+@onready var _time = $Time
+@onready var _teams = $Teams
+@onready var _balloon = $Balloon
+@onready var _pk : UI_Pk = $Pk
+@onready var _stats = $Stats
+@onready var _actions : UI_Actions = $Actions
 
-func _ready():
-	if elements & 1: relator.visible= true
-	if elements & 2: time.visible= true
-	if elements & 4: teams.visible= true
-	if elements & 8: pk.visible= true
-	if elements & 16: balloon.visible= true
-	if elements & 32: stats.visible= true
-	if elements & 64: actions.visible= true
+func _showRelator():
+	_relator.visible = true
+
+func _hideRelator():
+	_relator.visible = false
+
+func _showTime():
+	_time.visible = true
+
+func _hideTime():
+	_time.visible = false
+
+func _showTeams():
+	_teams.visible = true
+
+func _hideTeams():
+	_teams.visible = false
+
+func _showBalloon():
+	_balloon.visible = true
+
+func _hideBalloon():
+	_balloon.visible = false
+
+func _showPk():
+	_pk.visible = true
+
+func _hidePk():
+	_pk.visible = false
+
+func _showStats():
+	_stats.visible = true
+
+func _hideStats():
+	_stats.visible = false
+
+func _showActions():
+	_actions.visible = true
+	
+func _hideActions():
+	_actions.visible = false
+
+func penaltyKickChoose():
+	_showPk()
+	_showActions()
+	_showStats()
+
+func penaltyKickShoot():
+	_hideActions()
+	_hideStats()
+
+func penaltyKickShootTalk():
+	_relator.play("defaultTalking")
+	_showRelator()
+	_balloon.play("smallScream")
+	_showBalloon()
+
+func setTeam1Name(newName : String):
+	_pk.setTeam1Name(newName)
+
+func setTeam2Name(newName : String):
+	_pk.setTeam2Name(newName)
+
+func setTeam1Score(newScore : int):
+	_pk.setTeam1Score(newScore)
+
+func setTeam2Score(newScore : int):
+	_pk.setTeam2Score(newScore)
+
+func setActionLabel(newLabel : String):
+	_actions.setLabel(newLabel)
+
+func setActionActivity(newActivity : String):
+	_actions.setActivity(newActivity)
