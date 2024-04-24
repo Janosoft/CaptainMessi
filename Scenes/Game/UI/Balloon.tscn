@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://06drthhqghe"]
+[gd_scene load_steps=7 format=3 uid="uid://06drthhqghe"]
 
 [ext_resource type="Texture2D" uid="uid://be1xwf5ofr0mi" path="res://Assets/Game/Balloon.png" id="1_48vye"]
 
@@ -13,6 +13,10 @@ region = Rect2(152, 0, 152, 88)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bq77e"]
 atlas = ExtResource("1_48vye")
 region = Rect2(0, 0, 152, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g42bc"]
+atlas = ExtResource("1_48vye")
+region = Rect2(0, 88, 152, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8sey4"]
 animations = [{
@@ -39,8 +43,16 @@ animations = [{
 "loop": false,
 "name": &"small",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g42bc")
+}],
+"loop": false,
+"name": &"smallScream",
+"speed": 5.0
 }]
 
 [node name="Balloon" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_8sey4")
-animation = &"medium"
+animation = &"smallScream"
