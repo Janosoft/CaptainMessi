@@ -2,11 +2,11 @@
 extends Sprite2D
 class_name UI_Actions
 
-@onready var label = $Label
-@onready var activity = $Activity
+@onready var _label = $Label
+@onready var _activity = $Activity
 
 func setLabel(newLabel : String):
-	label.text = newLabel
+	_label.text = newLabel
 
 func setActivity(newActivity : String):
-	activity.text = newActivity
+	_activity.text = newActivity
