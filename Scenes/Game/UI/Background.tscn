@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://bb6lq7r1sdupo"]
+[gd_scene load_steps=56 format=3 uid="uid://bb6lq7r1sdupo"]
 
 [ext_resource type="Texture2D" uid="uid://dri4nr2eown45" path="res://Assets/Backgrounds/Backgrounds.png" id="1_0ltqg"]
 [ext_resource type="Texture2D" uid="uid://ncgfw8p10k04" path="res://Assets/Backgrounds/Backgrounds2.png" id="2_k6271"]
 [ext_resource type="Texture2D" uid="uid://bijaqarmxo38v" path="res://Assets/Backgrounds/Portraits.png" id="3_ss8l7"]
+[ext_resource type="Script" path="res://Scripts/Game/UI/Background.gd" id="4_xvhk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76see"]
 atlas = ExtResource("1_0ltqg")
@@ -51,6 +52,22 @@ region = Rect2(0, 224, 768, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbnu7"]
 atlas = ExtResource("2_k6271")
 region = Rect2(0, 224, 768, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lip8"]
+atlas = ExtResource("1_0ltqg")
+region = Rect2(0, 1568, 256, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5ys"]
+atlas = ExtResource("3_ss8l7")
+region = Rect2(0, 160, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uansc"]
+atlas = ExtResource("3_ss8l7")
+region = Rect2(160, 160, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7qq5"]
+atlas = ExtResource("3_ss8l7")
+region = Rect2(0, 0, 160, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xys2x"]
 atlas = ExtResource("3_ss8l7")
@@ -226,6 +243,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3lip8")
+}],
+"loop": true,
+"name": &"goalUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an5ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uansc")
+}],
+"loop": true,
+"name": &"portraitGoal",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7qq5")
+}],
+"loop": false,
+"name": &"portraitPost",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xys2x")
 }],
 "loop": false,
@@ -363,6 +407,291 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_6rm4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cteej"]
+resource_name = "cornerKickAwayLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"corner"]
+}
+
+[sub_resource type="Animation" id="Animation_5t0xd"]
+resource_name = "cornerKickHomeLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"corner"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g3l33"]
+resource_name = "goalAwaySide"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"portraitGoal"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 1, 1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7t1du"]
+resource_name = "goalHomeSide"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"portraitGoal"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vgqoj"]
+resource_name = "penaltyKick"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"goalPk"]
+}
+
+[sub_resource type="Animation" id="Animation_xmtdf"]
+resource_name = "penaltyRivalryLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"goal2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nq87j"]
+resource_name = "penaltyRivalryMiddle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"goalUp"]
+}
+
+[sub_resource type="Animation" id="Animation_w540r"]
+resource_name = "penaltyRivalryRight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"goal2"]
+}
+
+[sub_resource type="Animation" id="Animation_lxgxd"]
+resource_name = "penaltyShoot"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"sideLine", &"portraitShoot", &"goalPk"]
+}
+
+[sub_resource type="Animation" id="Animation_rlb2g"]
+resource_name = "postImpactLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"portraitPost"]
+}
+
+[sub_resource type="Animation" id="Animation_04b1c"]
+resource_name = "postImpactRight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"portraitPost"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1jlw"]
+_data = {
+"RESET": SubResource("Animation_6rm4c"),
+"cornerKickAwayLeft": SubResource("Animation_cteej"),
+"cornerKickHomeLeft": SubResource("Animation_5t0xd"),
+"goalAwaySide": SubResource("Animation_g3l33"),
+"goalHomeSide": SubResource("Animation_7t1du"),
+"penaltyKick": SubResource("Animation_vgqoj"),
+"penaltyRivalryLeft": SubResource("Animation_xmtdf"),
+"penaltyRivalryMiddle": SubResource("Animation_nq87j"),
+"penaltyRivalryRight": SubResource("Animation_w540r"),
+"penaltyShoot": SubResource("Animation_lxgxd"),
+"postImpactLeft": SubResource("Animation_rlb2g"),
+"postImpactRight": SubResource("Animation_04b1c")
+}
+
 [node name="Background" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_kks6k")
-animation = &"corner"
+animation = &"goal2"
+script = ExtResource("4_xvhk6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u1jlw")
+}
