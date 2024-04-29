@@ -688,7 +688,7 @@ _data = {
 
 [node name="Background" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_kks6k")
-animation = &"goal2"
+animation = &"goalPk"
 script = ExtResource("4_xvhk6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
