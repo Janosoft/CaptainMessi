@@ -11,61 +11,71 @@ class_name UI
 @onready var _actions : UI_Actions = $Actions
 
 func _showRelator():
-	_relator.visible = true
+	_relator.showRelator()
 
 func _hideRelator():
-	_relator.visible = false
+	_relator.hideRelator()
 
 func _showTime():
-	_time.visible = true
+	_time.showTime()
 
 func _hideTime():
-	_time.visible = false
+	_time.hideTime()
 
 func _showTeams():
-	_teams.visible = true
+	_teams.showTeams()
 
 func _hideTeams():
-	_teams.visible = false
+	_teams.hideTeams()
 
-func _showBalloon():
-	_balloon.visible = true
+func _showBalloon(type : String, scream: bool):
+	if scream:
+		match type:
+			"small": _balloon.showSmallScreamBalloon()
+			_: _balloon.showSmallScreamBalloon()
+	else:
+		match type:
+			"big": _balloon.showBigBalloon()
+			"medium": _balloon.showMediumBalloon()
+			"small": _balloon.showSmallBalloon()
+			_: _balloon.showSmallBalloon()
 
 func _hideBalloon():
-	_balloon.visible = false
+	_balloon.hideBalloon()
 
 func _showPk():
-	_pk.visible = true
+	_pk.showPK()
 
 func _hidePk():
-	_pk.visible = false
+	_pk.hidePK()
 
 func _showStats():
-	_stats.visible = true
+	_stats.showStats()
 
 func _hideStats():
-	_stats.visible = false
+	_stats.hideStats()
 
 func _showActions():
-	_actions.visible = true
+	_actions.showActions()
 	
 func _hideActions():
-	_actions.visible = false
+	_actions.hideActions()
 
 func penaltyKickChoose():
 	_showPk()
 	_showActions()
 	_showStats()
+	setActionLabel("Direction")
+	setActionActivity("")
 
 func penaltyKickShoot():
 	_hideActions()
 	_hideStats()
 
 func penaltyKickShootTalk():
-	_relator.play("defaultTalking")
 	_showRelator()
-	_balloon.play("smallScream")
-	_showBalloon()
+	_relator.talk()
+	_showBalloon("small", true)
 
 func setTeam1Name(newName : String):
 	_pk.setTeam1Name(newName)
