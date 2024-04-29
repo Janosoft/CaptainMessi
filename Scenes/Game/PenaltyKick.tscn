@@ -1,10 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://21gadoclhtox"]
+[gd_scene load_steps=10 format=3 uid="uid://21gadoclhtox"]
 
 [ext_resource type="Script" path="res://Scripts/Game/PenaltyKick.gd" id="1_kmgb1"]
 [ext_resource type="PackedScene" uid="uid://c54d854bd4ivl" path="res://Scenes/Game/UI/UI.tscn" id="1_mev6y"]
 [ext_resource type="PackedScene" uid="uid://xicl7vhvcgys" path="res://Scenes/Game/UI/BackgroundColor.tscn" id="2_xwerv"]
 [ext_resource type="PackedScene" uid="uid://bukmmmxk8gq42" path="res://Scenes/Others/Ball.tscn" id="3_gmhrd"]
 [ext_resource type="PackedScene" uid="uid://bb6lq7r1sdupo" path="res://Scenes/Game/UI/Background.tscn" id="3_vl1yl"]
+
+[sub_resource type="Animation" id="Animation_xxrx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"penaltyKickChoose"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"penaltyKick"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ball:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["defaultMini"],
+"method": &"showGoalKeeper"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2mj0o"]
 resource_name = "shoot"
@@ -80,9 +149,43 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_wn7e2"]
+resource_name = "test"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundColor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"danger"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"penaltyKickShootTalk"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7j6ih"]
 _data = {
-"shoot": SubResource("Animation_2mj0o")
+"RESET": SubResource("Animation_xxrx5"),
+"shoot": SubResource("Animation_2mj0o"),
+"test": SubResource("Animation_wn7e2")
 }
 
 [node name="PenaltyKick" type="Node2D"]
@@ -94,10 +197,11 @@ playerTeam = 2
 [node name="Ui" parent="." instance=ExtResource("1_mev6y")]
 
 [node name="BackgroundColor" parent="." instance=ExtResource("2_xwerv")]
+offset_bottom = 134.0
 
 [node name="Background" parent="." instance=ExtResource("3_vl1yl")]
 position = Vector2(128, 68)
-animation = &"goalPk"
+animation = &"portraitShoot"
 
 [node name="Ball" parent="." instance=ExtResource("3_gmhrd")]
 z_index = 1

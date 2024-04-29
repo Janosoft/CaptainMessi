@@ -13,12 +13,12 @@ class_name Team
 @export var KEEPER_1: Color
 @export var KEEPER_2: Color
 
-@onready var players = $Players
-@onready var goalkeepers = $Goalkeepers
+@onready var _players = $Players
+@onready var _goalkeepers = $Goalkeepers
 
 func _ready():
 #region Set Players Colors
-	for player in players.get_children():
+	for player in _players.get_children():
 		player.material= ShaderMaterial.new()
 		player.material.shader= preload("res://Shaders/player.gdshader")
 		player.material.set_shader_parameter('Shirt_1', SHIRT_1)
@@ -30,7 +30,7 @@ func _ready():
 		player.material.set_shader_parameter('Hair', player.hairColor)
 #endregion
 #region Set Goalkeepers Colors
-	for goalkeeper in goalkeepers.get_children():
+	for goalkeeper in _goalkeepers.get_children():
 		goalkeeper.material= ShaderMaterial.new()
 		goalkeeper.material.shader= preload("res://Shaders/goalkeeper.gdshader")
 		goalkeeper.material.set_shader_parameter('Shirt_1', KEEPER_1)
@@ -38,16 +38,9 @@ func _ready():
 		goalkeeper.material.set_shader_parameter('Skin', goalkeeper.skinColor)
 		goalkeeper.material.set_shader_parameter('Hair', goalkeeper.hairColor)
 #endregion
-	
-func showPlayer(playerName:String, animation:String):
-	hidePlayers()
-	var player : Node2D = self.find_child(playerName,true,true)
-	if player != null:
-		player.setAnimation(animation)
-		player.get_parent().visible = true
-		player.visible = true
-	else:
-		print_debug(playerName + " NO FUE ENCONTRADO EN " + self.name)
 
-func hidePlayers():
-	for child in self.get_children(): child.visible = false
+func getGoalKeeper() -> Goalkeeper:
+	return _goalkeepers.get_child(0)
+
+func getPlayer(playerName : String)-> Player :
+	return self.find_child(playerName,true,true)

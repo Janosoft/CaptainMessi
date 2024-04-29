@@ -23,32 +23,26 @@ visible = false
 position = Vector2(128, 120)
 texture = ExtResource("2_wj2vw")
 
-[node name="Relator" parent="." instance=ExtResource("3_a1sok")]
-visible = false
-position = Vector2(85, 186)
-animation = &"default"
-
 [node name="Time" parent="." instance=ExtResource("4_h6eqa")]
-visible = false
 position = Vector2(36, 154)
 
 [node name="Teams" parent="." instance=ExtResource("5_i7040")]
-visible = false
 position = Vector2(36, 190)
 
 [node name="Balloon" parent="." instance=ExtResource("6_onb8w")]
-visible = false
 position = Vector2(174, 174)
 animation = &"small"
 
 [node name="Pk" parent="." instance=ExtResource("7_qkwtw")]
-visible = false
 position = Vector2(36, 162)
 
 [node name="Stats" parent="." instance=ExtResource("8_e8d4o")]
-visible = false
 position = Vector2(192, 178)
 
 [node name="Actions" parent="." instance=ExtResource("9_vbeso")]
-visible = false
 position = Vector2(104, 162)
+
+[node name="Relator" parent="." instance=ExtResource("3_a1sok")]
+position = Vector2(85, 186)
+animation = &"default"
+frame = 0

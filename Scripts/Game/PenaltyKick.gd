@@ -4,11 +4,13 @@ signal gameOver
 @export_file("*.tscn") var team1File
 @export_file("*.tscn") var team2File
 @export_enum("Team 1:1", "Team 2:2") var playerTeam: int
-@onready var ui: UI = $Ui
-@onready var background = $Background
-@onready var animation_player = $AnimationPlayer
+
+@onready var _ui: UI = $Ui
+@onready var _animation_player = $AnimationPlayer
 
 enum Direction {LEFT, CENTER, RIGHT}
+var _currentPlayer: Player
+var _currentGoalKeeper: Goalkeeper
 var _playerDirection = Direction.CENTER
 var _goalkeeperDirection = Direction.CENTER
 var _team1 : Team
@@ -23,22 +25,20 @@ var _winner: int = 0
 func _ready():
 #region SETUP TEAMS
 	_team1 = load(team1File).instantiate()
-	_team1.position = Vector2(127,84)
 	self.add_child(_team1)
 	
 	_team2 = load(team2File).instantiate()
-	_team2.position = Vector2(127,84)
 	self.add_child(_team2)
 #endregion
 #region SETUP TURN
 	setTurn()
 #endregion
 #region SETUP UI
-	ui.setTeam1Name(_team1.TeamAbr)
-	ui.setTeam2Name(_team2.TeamAbr)
-	ui.setTeam1Score(_team1Score)
-	ui.setTeam2Score(_team2Score)
-	choose()
+	_ui.setTeam1Name(_team1.TeamAbr)
+	_ui.setTeam2Name(_team2.TeamAbr)
+	_ui.setTeam1Score(_team1Score)
+	_ui.setTeam2Score(_team2Score)
+	_animation_player.play("RESET")
 #endregion
 
 func _input(event):
@@ -46,28 +46,24 @@ func _input(event):
 		if event.is_action_pressed("Left"):
 			if (_teamTurn == playerTeam):_playerDirection = Direction.LEFT
 			else: _goalkeeperDirection = Direction.LEFT
-			ui.setActionActivity("Left")
+			_ui.setActionActivity("Left")
 		elif event.is_action_pressed("Right"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.RIGHT
 			else: _goalkeeperDirection = Direction.RIGHT
-			ui.setActionActivity("Right")
+			_ui.setActionActivity("Right")
 		elif event.is_action_pressed("Up"):
 			if (_teamTurn == playerTeam): _playerDirection = Direction.CENTER
 			else: _goalkeeperDirection = Direction.CENTER
-			ui.setActionActivity("Middle")
+			_ui.setActionActivity("Middle")
 		elif event.is_action_pressed("Cancel"):
-			ui.setActionActivity("")
+			_ui.setActionActivity("")
 		elif event.is_action_pressed("Action"):
-			ui.setActionActivity("")
+			_ui.setActionActivity("")
 			shoot()
 
-func choose():
-	ui.penaltyKickChoose()
-	ui.setActionLabel("Direction")
-	ui.setActionActivity("")
-
 func shoot():
-	animation_player.play("shoot")
+	_animation_player.stop()
+	_animation_player.play("shoot")
 	
 	if _teamTurn == playerTeam: _goalkeeperDirection = Direction.values()[randi() % 3]
 	else: _playerDirection = Direction.values()[randi() % 3]
@@ -104,12 +100,10 @@ func changeTurn():
 func setTurn():
 	if _teamTurn == playerTeam:
 		print_debug("PLAYER HAS TO SHOOT")
-		_team2.hidePlayers()
-		_team1.showPlayer(_team1.goalkeepers.get_child(0).name, "defaultMini")
+		_currentGoalKeeper= _team1.getGoalKeeper()
 	else:
 		print_debug("PLAYER HAS TO SAVE")
-		_team1.hidePlayers()
-		_team2.showPlayer(_team2.goalkeepers.get_child(0).name, "defaultMini")
+		_currentGoalKeeper= _team2.getGoalKeeper()
 
 func isAWinner()-> int:
 	if (_team1Score - (_team2Score + _team2RemainingTurns)) >0 : return 1
@@ -119,7 +113,19 @@ func isAWinner()-> int:
 func goal(team : int):
 	if team == 1:
 		_team1Score +=1
-		ui.setTeam1Score(_team1Score)
+		_ui.setTeam1Score(_team1Score)
 	else:
 		_team2Score +=1
-		ui.setTeam2Score(_team2Score)
+		_ui.setTeam2Score(_team2Score)
+
+func showGoalKeeper(animation : String):
+	_currentGoalKeeper.showGoalKeeper(animation)
+
+func hideGoalKeeper():
+	_currentGoalKeeper.hideGoalKeeper()
+
+func showPlayer(animation : String):
+	_currentPlayer.showPlayer(animation)
+
+func hidePlayer():
+	_currentPlayer.hidePlayer()

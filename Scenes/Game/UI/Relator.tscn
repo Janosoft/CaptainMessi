@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cgx8nrkuup1jh"]
+[gd_scene load_steps=63 format=3 uid="uid://cgx8nrkuup1jh"]
 
 [ext_resource type="Texture2D" uid="uid://ul0b1gsnd6o6" path="res://Assets/Others/Relator.png" id="1_60ofl"]
 [ext_resource type="Script" path="res://Scripts/Game/UI/Relator.gd" id="2_j1n7i"]
@@ -353,6 +353,33 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Animation" id="Animation_g33gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_5heln"]
 resource_name = "cry"
 loop_mode = 1
@@ -577,6 +604,34 @@ tracks/1/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_i0nt8"]
+resource_name = "hide"
+length = 1.51
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_77a5h"]
 resource_name = "serious"
 length = 0.2
@@ -620,6 +675,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_ibf0y"]
+resource_name = "show"
+length = 1.51
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hxtxw"]
@@ -666,35 +749,6 @@ tracks/0/keys = {
 "values": [&"victory"]
 }
 
-[sub_resource type="Animation" id="Animation_nqbdq"]
-resource_name = "victoryTalking"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"victoryTalking"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
 [sub_resource type="Animation" id="Animation_aty7n"]
 resource_name = "victoryFlag"
 tracks/0/type = "value"
@@ -725,6 +779,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"victoryFlagTalking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_nqbdq"]
+resource_name = "victoryTalking"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"victoryTalking"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -786,6 +869,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tb3y5"]
 _data = {
+"RESET": SubResource("Animation_g33gq"),
 "cry": SubResource("Animation_5heln"),
 "default": SubResource("Animation_1ofqc"),
 "defaultAngry": SubResource("Animation_x3p0g"),
@@ -796,8 +880,10 @@ _data = {
 "happy": SubResource("Animation_fnnx2"),
 "happyMocking": SubResource("Animation_ctq0y"),
 "happyTalking": SubResource("Animation_ra2ku"),
+"hide": SubResource("Animation_i0nt8"),
 "serious": SubResource("Animation_77a5h"),
 "seriousTalking": SubResource("Animation_uokgp"),
+"show": SubResource("Animation_ibf0y"),
 "sleeping": SubResource("Animation_hxtxw"),
 "victory": SubResource("Animation_od0ly"),
 "victoryFlag": SubResource("Animation_aty7n"),
@@ -808,8 +894,11 @@ _data = {
 }
 
 [node name="Relator" type="AnimatedSprite2D"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_5etmk")
-animation = &"serious"
+animation = &"defaultTalking"
+frame = 2
 script = ExtResource("2_j1n7i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -9,9 +9,11 @@ class_name UI_Pk
 @onready var _animation_player = $AnimationPlayer
 
 func showPK():
+	_animation_player.stop()
 	_animation_player.play("show")
 
 func hidePK():
+	_animation_player.stop()
 	_animation_player.play("hide")
 
 func setTeam1Name(newName : String):
