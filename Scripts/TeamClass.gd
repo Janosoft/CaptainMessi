@@ -42,5 +42,8 @@ func _ready():
 func getGoalKeeper() -> Goalkeeper:
 	return _goalkeepers.get_child(0)
 
+func getPenaltyKicker() -> Player :
+	return _players.get_child(0)
+
 func getPlayer(playerName : String)-> Player :
 	return self.find_child(playerName,true,true)

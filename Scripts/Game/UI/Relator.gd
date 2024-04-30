@@ -62,5 +62,4 @@ func talk():
 	else:
 		print_debug("Emotion NOT FOUND: " + _status+"Talking")
 		_animation_player.queue("defaultTalking")
-	print_debug(_animation_player.current_animation)
 #endregion

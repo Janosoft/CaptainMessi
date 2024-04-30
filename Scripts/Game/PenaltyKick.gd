@@ -62,26 +62,30 @@ func _input(event):
 			shoot()
 
 func shoot():
+	#region Calculate Directions
+	if _teamTurn == playerTeam: _goalkeeperDirection = Direction.values()[randi() % 3]
+	else: _playerDirection = Direction.values()[randi() % 3]
+	#endregion
+	
 	_animation_player.stop()
 	_animation_player.play("shoot")
 	
-	if _teamTurn == playerTeam: _goalkeeperDirection = Direction.values()[randi() % 3]
-	else: _playerDirection = Direction.values()[randi() % 3]
-	
 	if _playerDirection != _goalkeeperDirection:
 		goal(_teamTurn)
-		print_debug("Team "+ str(_teamTurn) +" GOAL")
 	else:
 		print_debug("Team "+ str(_teamTurn) +" NO GOAL")
 	
 	_winner = isAWinner()
 	if _winner:
-		print_debug("Winner: " + str(_winner))
+		if _winner == playerTeam:
+			emit_signal("gameOver", "playerWin")
+			print_debug("playerWin")
+		else:
+			emit_signal("gameOver", "playerLoose")
+			print_debug("playerLoose")
 	else:
 		changeTurn()
 		setTurn()
-		
-	#emit_signal("gameOver", "playerWins")
 	
 func changeTurn():
 	if _teamTurn == 1:
@@ -101,9 +105,11 @@ func setTurn():
 	if _teamTurn == playerTeam:
 		print_debug("PLAYER HAS TO SHOOT")
 		_currentGoalKeeper= _team1.getGoalKeeper()
+		_currentPlayer= _team2.getPenaltyKicker()
 	else:
 		print_debug("PLAYER HAS TO SAVE")
 		_currentGoalKeeper= _team2.getGoalKeeper()
+		_currentPlayer= _team1.getPenaltyKicker()
 
 func isAWinner()-> int:
 	if (_team1Score - (_team2Score + _team2RemainingTurns)) >0 : return 1

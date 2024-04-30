@@ -201,7 +201,8 @@ offset_bottom = 134.0
 
 [node name="Background" parent="." instance=ExtResource("3_vl1yl")]
 position = Vector2(128, 68)
-animation = &"portraitShoot"
+animation = &"goalPk"
+frame = 0
 
 [node name="Ball" parent="." instance=ExtResource("3_gmhrd")]
 z_index = 1
