@@ -49,8 +49,11 @@ func _showPk():
 func _hidePk():
 	_pk.hidePK()
 
-func _showStats():
-	_stats.showStats()
+func showPlayerStats(currentPlayer : Player):
+	_stats.showPlayerStats(currentPlayer)
+
+func showGoalKeeperStats(currentGoalKeeper: Goalkeeper):
+	_stats.showGoalKeeperStats(currentGoalKeeper)
 
 func _hideStats():
 	_stats.hideStats()
@@ -64,7 +67,6 @@ func _hideActions():
 func penaltyKickChoose():
 	_showPk()
 	_showActions()
-	_showStats()
 	setActionLabel("Direction")
 	setActionActivity("")
 

@@ -106,10 +106,12 @@ func setTurn():
 		print_debug("PLAYER HAS TO SHOOT")
 		_currentGoalKeeper= _team1.getGoalKeeper()
 		_currentPlayer= _team2.getPenaltyKicker()
+		_ui.showPlayerStats(_currentPlayer)
 	else:
 		print_debug("PLAYER HAS TO SAVE")
 		_currentGoalKeeper= _team2.getGoalKeeper()
 		_currentPlayer= _team1.getPenaltyKicker()
+		_ui.showGoalKeeperStats(_currentGoalKeeper)
 
 func isAWinner()-> int:
 	if (_team1Score - (_team2Score + _team2RemainingTurns)) >0 : return 1
