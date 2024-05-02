@@ -126,8 +126,8 @@ func goal(team : int):
 		_team2Score +=1
 		_ui.setTeam2Score(_team2Score)
 
-func showGoalKeeper(animation : String):
-	_currentGoalKeeper.showGoalKeeper(animation)
+func showGoalKeeper():
+	_currentGoalKeeper.showGoalKeeper()
 
 func hideGoalKeeper():
 	_currentGoalKeeper.hideGoalKeeper()
