@@ -12,16 +12,19 @@ class_name Goalkeeper
 @export var punchCount : int = 8
 @export var catchCount : int = 8
 
-@onready var _animated_sprite_2d = $AnimatedSprite2D
+@onready var _animation_player = $AnimationPlayer
 
-func showGoalKeeper(animation : String):
-	setAnimation(animation)
+func showGoalKeeper():
 	visible = true
 
 func hideGoalKeeper():
-	_animated_sprite_2d.stop()
 	visible = false
 
-func setAnimation(animation:String):
-	_animated_sprite_2d.stop()
-	_animated_sprite_2d.play(animation)
+func penaltyKickFlyLeft():
+	_animation_player.play("PK Fly Left")
+
+func penaltyKickFlyRight():
+	_animation_player.play("PK Fly Left")
+
+func penaltyKickStands():
+	_animation_player.play("PK Stand")
