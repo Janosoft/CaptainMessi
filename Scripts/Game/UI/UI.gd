@@ -94,3 +94,9 @@ func setActionLabel(newLabel : String):
 
 func setActionActivity(newActivity : String):
 	_actions.setActivity(newActivity)
+
+func setTimeTitle(newTitle : String):
+	_time.setTitle(newTitle)
+
+func setTimeClock(clockTime : String):
+	_time.setClock(clockTime)

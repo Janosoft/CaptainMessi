@@ -57,6 +57,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7x2wd"]
+resource_name = "big"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"big"]
+}
+
 [sub_resource type="Animation" id="Animation_vo7h2"]
 resource_name = "hide"
 length = 1.51
@@ -129,22 +145,6 @@ tracks/0/keys = {
 "values": [&"small"]
 }
 
-[sub_resource type="Animation" id="Animation_7x2wd"]
-resource_name = "big"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"big"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cnlj5"]
 _data = {
 "RESET": SubResource("Animation_quwhh"),
@@ -158,7 +158,7 @@ _data = {
 visible = false
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_4o361")
-animation = &"small"
+animation = &"big"
 autoplay = "big"
 script = ExtResource("2_rtdxj")
 
@@ -168,6 +168,7 @@ offset_top = -49.0
 offset_right = 29.0
 offset_bottom = -26.0
 theme_override_font_sizes/font_size = 8
+text = "GK Callender"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -175,3 +176,110 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_cnlj5")
 }
+
+[node name="PlayerStats" type="GridContainer" parent="."]
+offset_left = -43.0
+offset_top = -33.0
+offset_right = 43.0
+offset_bottom = 26.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = -7
+columns = 2
+
+[node name="Guts" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "GUTS"
+vertical_alignment = 1
+
+[node name="GutsPoints" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "510"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dribble" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "DRIBBLE"
+
+[node name="DribblePoints" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Pass" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "PASS"
+vertical_alignment = 1
+
+[node name="PassPoints" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "11"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Shot" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SHOT"
+vertical_alignment = 1
+
+[node name="ShotPoints" type="Label" parent="PlayerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "12"
+horizontal_alignment = 2
+
+[node name="GoalKeeperStats" type="GridContainer" parent="."]
+visible = false
+offset_left = -43.0
+offset_top = -33.0
+offset_right = 43.0
+offset_bottom = 22.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = -7
+columns = 2
+
+[node name="Guts" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "GUTS"
+vertical_alignment = 1
+
+[node name="GutsPoints" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "510"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Puch" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "PUNCH"
+
+[node name="PuchPoints" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Catch" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "CATCH"
+vertical_alignment = 1
+
+[node name="CatchPoints" type="Label" parent="GoalKeeperStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "11"
+horizontal_alignment = 2
+vertical_alignment = 1

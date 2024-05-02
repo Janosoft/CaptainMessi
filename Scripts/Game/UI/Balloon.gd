@@ -1,6 +1,10 @@
 extends AnimatedSprite2D
 
 @onready var _animation_player = $AnimationPlayer
+@onready var _text = $Text
+
+func setText(newText : String):
+	_text.text = newText
 
 func showSmallBalloon():
 	_animation_player.stop()

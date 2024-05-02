@@ -99,6 +99,24 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_kgvxh")
 script = ExtResource("2_0vbtv")
 
+[node name="Title" type="Label" parent="."]
+offset_left = -12.0
+offset_top = -25.0
+offset_right = 12.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Clock" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -10.0
+offset_right = 25.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_56qhc")

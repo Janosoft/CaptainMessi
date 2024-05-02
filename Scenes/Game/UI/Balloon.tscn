@@ -216,8 +216,19 @@ _data = {
 visible = false
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_8sey4")
-animation = &"medium"
+animation = &"big"
 script = ExtResource("2_a7ndv")
+
+[node name="Text" type="Label" parent="."]
+offset_left = -68.0
+offset_top = -36.0
+offset_right = 68.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
