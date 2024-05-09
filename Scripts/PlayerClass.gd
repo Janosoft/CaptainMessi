@@ -13,19 +13,10 @@ class_name Player
 @export var passCount : int = 8
 @export var shotCount : int = 8
 
-@onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _animation_player = $AnimationPlayer
 
-func showPlayer(animation : String):
-	setAnimation(animation)
-	visible = true
+func shootLeft():
+	_animation_player.play("shootLeft")
 
-func hidePlayer():
-	visible = false
-	_animated_sprite_2d.stop()
-
-func setAnimation(animation:String):
-	_animated_sprite_2d.stop()
-	if _animated_sprite_2d.sprite_frames.has_animation(animation):
-		_animated_sprite_2d.play(animation)
-	else:
-		print_debug("animation NOT EXISTS: " + animation)
+func shootRight():
+	_animation_player.play("shootRight")

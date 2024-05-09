@@ -132,8 +132,5 @@ func showGoalKeeper():
 func hideGoalKeeper():
 	_currentGoalKeeper.hideGoalKeeper()
 
-func showPlayer(animation : String):
-	_currentPlayer.showPlayer(animation)
-
-func hidePlayer():
-	_currentPlayer.hidePlayer()
+func playerShoots():
+	_currentPlayer.shootLeft()
