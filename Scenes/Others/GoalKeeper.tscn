@@ -1,8 +1,141 @@
-[gd_scene load_steps=4 format=3 uid="uid://qdux3snytcfd"]
+[gd_scene load_steps=9 format=3 uid="uid://qdux3snytcfd"]
 
 [ext_resource type="Script" path="res://Scripts/Others/GoalKeeper.gd" id="1_cc76t"]
 [ext_resource type="Texture2D" uid="uid://i1ydox7t6n0a" path="res://Assets/Examples/Captain Tsubasa Vol. II - Super Striker (English v1.0)_019.png" id="1_x3iqv"]
 [ext_resource type="Texture2D" uid="uid://4b6iq844867v" path="res://Assets/Goalkeepers/Goalkeeper_1.png" id="1_xfo1e"]
+
+[sub_resource type="Animation" id="Animation_7wx0b"]
+resource_name = "PK Stand"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_ep3kk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skin:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skin:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(127, 84)]
+}
+
+[sub_resource type="Animation" id="Animation_7bg6s"]
+resource_name = "PK Fly Left"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skin:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skin:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(127, 84), Vector2(107, 79)]
+}
+
+[sub_resource type="Animation" id="Animation_o2onh"]
+resource_name = "PK Fly Right"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skin:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(127, 84), Vector2(147, 79)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gf8m"]
+_data = {
+"PK Fly Left": SubResource("Animation_7bg6s"),
+"PK Fly Right": SubResource("Animation_o2onh"),
+"PK Stand": SubResource("Animation_7wx0b"),
+"RESET": SubResource("Animation_ep3kk")
+}
 
 [node name="GoalKeeper" type="Node2D"]
 script = ExtResource("1_cc76t")
@@ -12,7 +145,7 @@ visible = false
 position = Vector2(128, 120)
 texture = ExtResource("1_x3iqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Skin" type="Sprite2D" parent="."]
 position = Vector2(127, 84)
 texture = ExtResource("1_xfo1e")
 hframes = 4
@@ -20,3 +153,6 @@ vframes = 4
 frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0gf8m")
+}
